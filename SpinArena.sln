@@ -1,7 +1,7 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{FEDB7EEF-8FFF-56DD-B036-C85C9DCFD176}") = "SpinArena", "Assembly-CSharp.csproj", "{7BC40360-EEE7-A843-AD8E-CF2135F62A7E}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpinArena", "Assembly-CSharp.csproj", "{7BC40360-EEE7-A843-AD8E-CF2135F62A7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

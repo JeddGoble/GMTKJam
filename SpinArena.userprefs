@@ -1,10 +1,10 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CameraFollow.cs">
+﻿<Properties StartupConfiguration="{7BC40360-EEE7-A843-AD8E-CF2135F62A7E}|Unit Tests">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GroundSpikesController.cs">
     <Files>
-      <File FileName="../GravityBoots/Assets/Scripts/MainCharacterController.cs" Line="142" Column="3" />
-      <File FileName="Assets/Scripts/MainCharacterController.cs" Line="24" Column="38" />
-      <File FileName="Assets/Scripts/CameraFollow.cs" Line="7" Column="29" />
-      <File FileName="../GravityBoots/Assets/Scripts/CameraLerpToTransform.cs" Line="17" Column="20" />
+      <File FileName="../GravityBoots/Assets/Scripts/SawBladeController.cs" Line="36" Column="2" />
+      <File FileName="../GravityBoots/Assets/Scripts/GameManager.cs" Line="42" Column="3" />
+      <File FileName="Assets/GroundSpikesController.cs" Line="32" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
