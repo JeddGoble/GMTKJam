@@ -6,6 +6,7 @@ public class MainCharacterController : MonoBehaviour
 {
 
 	public float speed = 14f;
+	public float IdleAnimationSpeedThreshhold = 10f;
 	private Vector2 input;
 	private Vector2 rStick;
 	private SpriteRenderer sr;
@@ -54,6 +55,18 @@ public class MainCharacterController : MonoBehaviour
 		input.x = Input.GetAxis("Horizontal");
 		input.y = Input.GetAxis("Vertical");
 
+		bool isMoving = (rb.velocity.x > IdleAnimationSpeedThreshhold && rb.velocity.y > IdleAnimationSpeedThreshhold && Mathf.Abs(input.x) > 0 && Mathf.Abs(input.y) > 0);
+
+		if ((input.x != 0f || input.y != 0f) && !isAnimatingKickback)
+		{
+			animator.SetBool("IsWalking", true);
+		}
+		 else if (isAnimatingKickback || !isMoving)
+		{
+			animator.SetBool("IsWalking", false);
+		}
+
+
 		if (input.x < 0f)
 		{
 			sr.flipX = true;
@@ -100,8 +113,6 @@ public class MainCharacterController : MonoBehaviour
 
 		if (!isInvincible)
 		{
-			print("Should show damage animation");
-
 			animator.SetBool("IsInvincible", true);
 			isInvincible = true;
 			rb.AddForce(fromDirection * TakeDamageKickback, ForceMode2D.Impulse);

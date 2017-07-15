@@ -11,7 +11,7 @@ public class GroundSpikesController : MonoBehaviour
 	public float Delay = 1f;
 	public float SpikesUpTime = 0.75f;
 
-
+	private bool spikesAreUp = false;
 
 	private SpriteRenderer spriteRenderer;
 
@@ -35,7 +35,15 @@ public class GroundSpikesController : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			spikesUpDelayed();
+			if (spikesAreUp)
+			{
+				var myPos = new Vector2(transform.position.x, transform.position.y);
+				GameManager.instance.PlayerTakeDamage(1, myPos);
+			}
+			else
+			{
+                StartCoroutine(spikesUpDelayed());
+			}
 		}
 	}
 
@@ -44,8 +52,17 @@ public class GroundSpikesController : MonoBehaviour
 		yield return new WaitForSeconds(Delay);
 		spriteRenderer.sprite = spikesUpSprite;
 
-		var myPos = new Vector2(transform.position.x, transform.position.y);
-		GameManager.instance.PlayerTakeDamage(1, myPos);
+		spikesAreUp = true;
+
+		StartCoroutine(spikesDownDelayed());
+	}
+
+	private IEnumerator spikesDownDelayed()
+	{
+		yield return new WaitForSeconds(SpikesUpTime);
+		spriteRenderer.sprite = spikesDownSprite;
+
+		spikesAreUp = false;
 	}
 
 }
