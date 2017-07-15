@@ -7,6 +7,7 @@ public class MainCharacterController : MonoBehaviour
 
 	public float speed = 14f;
 	private Vector2 input;
+    private Vector2 rStick;
 	private SpriteRenderer sr;
 	private Rigidbody2D rb;
 	private Animator animator;
@@ -37,7 +38,13 @@ public class MainCharacterController : MonoBehaviour
 		input.x = Input.GetAxis("Horizontal");
 		input.y = Input.GetAxis("Vertical");
 
-
+		if (input.x < 0f)
+		{
+			sr.flipX = true;
+		} else if (input.x > 0f)
+		{
+			sr.flipX = false;
+		}
 
 	}
 
