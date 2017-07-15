@@ -51,7 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BatController.cs" />
+     <Compile Include="Assets\Scripts\BatController.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\GroundSpikesController.cs" />
      <Compile Include="Assets\Scripts\MainCharacterController.cs" />
