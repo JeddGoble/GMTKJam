@@ -37,13 +37,20 @@ public class GroundSpikesController : MonoBehaviour
 		{
 			if (spikesAreUp)
 			{
-				var myPos = new Vector2(transform.position.x, transform.position.y);
-				GameManager.instance.PlayerTakeDamage(1, myPos);
+				dealDamageToPlayer();
 			}
 			else
 			{
                 StartCoroutine(spikesUpDelayed());
 			}
+		}
+	}
+
+	void OnTriggerStay2D(Collider2D other)
+	{
+		if (spikesAreUp && other.tag == "Player")
+		{
+			dealDamageToPlayer();
 		}
 	}
 
@@ -63,6 +70,12 @@ public class GroundSpikesController : MonoBehaviour
 		spriteRenderer.sprite = spikesDownSprite;
 
 		spikesAreUp = false;
+	}
+
+	private void dealDamageToPlayer()
+	{
+var myPos = new Vector2(transform.position.x, transform.position.y);
+GameManager.instance.PlayerTakeDamage(1, myPos);
 	}
 
 }
