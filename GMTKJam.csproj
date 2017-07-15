@@ -81,6 +81,8 @@
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\MainCharacterController.cs" />
     <Compile Include="Assets\Scripts\MorningStar.cs" />
+    <Compile Include="Assets\Scripts\PSpike.cs" />
+    <Compile Include="Assets\Scripts\Shooter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

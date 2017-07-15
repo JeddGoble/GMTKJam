@@ -19,7 +19,7 @@ Platform assembly: C:\Users\Armando\Documents\GameJam\GMTKJam\build_Data\Managed
 Loading C:\Users\Armando\Documents\GameJam\GMTKJam\build_Data\Managed\UnityEngine.Timeline.dll into Unity Child Domain
 Platform assembly: C:\Users\Armando\Documents\GameJam\GMTKJam\build_Data\Managed\System.dll (this message is harmless)
 Platform assembly: C:\Users\Armando\Documents\GameJam\GMTKJam\build_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.116 seconds
+- Completed reload, in  0.017 seconds
 <RI> Initializing input.
 <RI.Hid> Failed to create device file:
  2 The system cannot find the file specified.
@@ -29,9 +29,9 @@ Platform assembly: C:\Users\Armando\Documents\GameJam\GMTKJam\build_Data\Managed
 
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 3.844851 ms
+UnloadTime: 3.020389 ms
 Setting up 4 worker threads for Enlighten.
-  Thread -> id: 2884 -> priority: 1 
-  Thread -> id: 1154 -> priority: 1 
-  Thread -> id: 4008 -> priority: 1 
-  Thread -> id: 46c4 -> priority: 1 
+  Thread -> id: 4448 -> priority: 1 
+  Thread -> id: 39e4 -> priority: 1 
+  Thread -> id: 4644 -> priority: 1 
+  Thread -> id: 3df0 -> priority: 1 

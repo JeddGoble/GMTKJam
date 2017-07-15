@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MorningStar : MonoBehaviour {
+public class PSpike : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-    }
+		
+	}
 	
 	// Update is called once per frame
 	void Update () {
