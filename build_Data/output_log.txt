@@ -4,7 +4,7 @@ Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
     Renderer: NVIDIA GeForce GTX 1080 (ID=0x1b80)
     Vendor:   NVIDIA
-    VRAM:     3072 MB
+    VRAM:     8080 MB
     Driver:   10.18.13.6825
 Begin MonoManager ReloadAssembly
 Platform assembly: C:\Users\Armando\Documents\GameJam\GMTKJam\build_Data\Managed\UnityEngine.dll (this message is harmless)
@@ -19,19 +19,13 @@ Platform assembly: C:\Users\Armando\Documents\GameJam\GMTKJam\build_Data\Managed
 Loading C:\Users\Armando\Documents\GameJam\GMTKJam\build_Data\Managed\UnityEngine.Timeline.dll into Unity Child Domain
 Platform assembly: C:\Users\Armando\Documents\GameJam\GMTKJam\build_Data\Managed\System.dll (this message is harmless)
 Platform assembly: C:\Users\Armando\Documents\GameJam\GMTKJam\build_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.017 seconds
+- Completed reload, in  0.014 seconds
 <RI> Initializing input.
-<RI.Hid> Failed to create device file:
- 2 The system cannot find the file specified.
-
- 
-(Filename:  Line: 54)
-
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 3.020389 ms
+UnloadTime: 2.059751 ms
 Setting up 4 worker threads for Enlighten.
-  Thread -> id: 4448 -> priority: 1 
-  Thread -> id: 39e4 -> priority: 1 
-  Thread -> id: 4644 -> priority: 1 
-  Thread -> id: 3df0 -> priority: 1 
+  Thread -> id: 2004 -> priority: 1 
+  Thread -> id: 14ac -> priority: 1 
+  Thread -> id: 1d00 -> priority: 1 
+  Thread -> id: 356c -> priority: 1 

@@ -84,6 +84,8 @@
     <Compile Include="Assets\Scripts\MainCharacterController.cs" />
     <Compile Include="Assets\Scripts\MorningStar.cs" />
     <Compile Include="Assets\Scripts\PSpike.cs" />
+    <Compile Include="Assets\Scripts\Saw.cs" />
+    <Compile Include="Assets\Scripts\SawHolder.cs" />
     <Compile Include="Assets\Scripts\Shooter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
