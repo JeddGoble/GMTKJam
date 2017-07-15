@@ -1,5 +1,2 @@
-*Temp/*
-*.exe
-*Library/*
-*.vs/
-build_Data
+temp/
+Library/

@@ -8,7 +8,15 @@ public class CameraFollow : MonoBehaviour
 	public Transform camTarget;
 	public float trackingSpeed = 3f;
 
-	void FixedUpdate()
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) == true)
+        {
+            Application.Quit();
+        }
+    }
+
+    void FixedUpdate()
 	{
 		if (camTarget != null)
 		{
