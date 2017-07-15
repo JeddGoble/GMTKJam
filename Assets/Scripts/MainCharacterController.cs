@@ -37,7 +37,13 @@ public class MainCharacterController : MonoBehaviour
 		input.x = Input.GetAxis("Horizontal");
 		input.y = Input.GetAxis("Vertical");
 
-
+		if (input.x < 0f)
+		{
+			sr.flipX = true;
+		} else if (input.x > 0f)
+		{
+			sr.flipX = false;
+		}
 
 	}
 
