@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundSpikesController : MonoBehaviour {
+public class GroundSpikesController : MonoBehaviour
+{
 
 	public Sprite spikesDownSprite;
 	public Sprite spikesUpSprite;
 
-	public float Delay;
+	public float Delay = 1f;
+	public float SpikesUpTime = 0.75f;
+
+
 
 	private SpriteRenderer spriteRenderer;
 
@@ -17,30 +21,31 @@ public class GroundSpikesController : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	void Start()
+	{
+
 	}
 
+	// Update is called once per frame
+	void Update()
+	{
+
+	}
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			spriteRenderer.sprite = spikesUpSprite;
+			spikesUpDelayed();
 		}
 	}
 
-	void OnTriggerExit2D(Collider2D other)
+	private IEnumerator spikesUpDelayed()
 	{
-		if (other.gameObject.tag == "Player")
-		{
-			spriteRenderer.sprite = spikesDownSprite;
-		}
-	}
+		yield return new WaitForSeconds(Delay);
+		spriteRenderer.sprite = spikesUpSprite;
 
+		var myPos = new Vector2(transform.position.x, transform.position.y);
+		GameManager.instance.PlayerTakeDamage(1, myPos);
+	}
 
 }
