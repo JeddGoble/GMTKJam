@@ -1,13 +1,13 @@
-﻿<Properties StartupConfiguration="{7BC40360-EEE7-A843-AD8E-CF2135F62A7E}|Unit Tests">
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Saw.cs">
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Shooter.cs">
     <Files>
-      <File FileName="Assets/Scripts/BatController.cs" Line="51" Column="3" />
-      <File FileName="Assets/Scripts/MainCharacterController.cs" Line="89" Column="4" />
-      <File FileName="Assets/GameManager/GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GroundSpikesController.cs" Line="12" Column="35" />
-      <File FileName="../GravityBoots/Assets/Scripts/GameManager.cs" Line="33" Column="2" />
-      <File FileName="Assets/Scripts/Saw.cs" Line="22" Column="2" />
+      <File FileName="Assets/GameManager/GameManager.cs" Line="21" Column="13" />
+      <File FileName="Assets/Scripts/BatController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MainCharacterController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GroundSpikesController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Saw.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/EnemySpawner.cs" Line="35" Column="5" />
+      <File FileName="Assets/Scripts/Shooter.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

@@ -9,12 +9,16 @@ public class GameManager : MonoBehaviour
 
 	public static GameManager instance;
 
+	public EnemySpawner enemySpawner;
+
 	public MainCharacterController PlayerCharacter;
 
     public CameraFollow camera;
 
 	public int StartingLives;
 	public int LivesLeft;
+
+	public int CurrentLevel = 1;
 
 	void Awake()
 	{
@@ -33,6 +37,8 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		LivesLeft = StartingLives;
+
+		RestartLevelNow();
 	}
 
 	// Update is called once per frame
@@ -56,7 +62,7 @@ public class GameManager : MonoBehaviour
         {
             PlayerCharacter.Kill();
             camera.Shake(1f, 2f);
-            RestartLevel(2);
+            RestartLevelDelayed(2);
         }
 
 		// Handle player damage & animation
@@ -77,7 +83,7 @@ public class GameManager : MonoBehaviour
 	}
 
 
-	public void RestartLevel(float delay)
+	public void RestartLevelDelayed(float delay)
 	{
 		StartCoroutine(RestartLevelDelay(delay));
 	}
@@ -85,6 +91,13 @@ public class GameManager : MonoBehaviour
 	private IEnumerator RestartLevelDelay(float delay)
 	{
 		yield return new WaitForSeconds(delay);
+		RestartLevelNow();
+	}
+
+	public void RestartLevelNow()
+	{
+		print("Restarting level");
 		SceneManager.LoadScene("MainScene");
+		enemySpawner.SpawnNextWave(CurrentLevel);
 	}
 }
