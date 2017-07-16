@@ -20,6 +20,8 @@ public class EnemySpawner : MonoBehaviour
 
     public GameObject Player;
 
+    public GameObject Spikes;
+
     private BaseEnemy currBoss = null;
 
     private bool bossActive = false;
@@ -284,6 +286,29 @@ public class EnemySpawner : MonoBehaviour
     private void spawnLaser()
     {
         currHazards.Add(Instantiate(Laser));
+    }
+
+    private void spawnFloorSpikes(int n)
+    {
+        List<int> used = new List<int>();
+        for(int i = 0;i < n;i++)
+        {
+            var spawnPositions = SpawnPoints.GetComponentsInChildren<Transform>();
+            var numberOfSpawns = spawnPositions.Length;
+            var usedSpawns = new Transform[numberOfSpawns];
+
+            var batSpawnNumber = (int)Random.Range(0, numberOfSpawns);
+            while(!used.Contains(batSpawnNumber))
+            {
+                batSpawnNumber = (int)Random.Range(0, numberOfSpawns);
+                used.Add(batSpawnNumber);
+            }
+
+            Transform spawnPoint = spawnPositions[batSpawnNumber];
+            Vector3 pos = new Vector3(spawnPoint.position.x, spawnPoint.position.y);
+            GameObject bat = Instantiate(Spikes, pos, spawnPoint.rotation);
+            currHazards.Add(bat);
+        }
     }
 
     private bool enemiesAlive()
