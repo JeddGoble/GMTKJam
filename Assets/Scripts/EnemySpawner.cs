@@ -84,37 +84,117 @@ public class EnemySpawner : MonoBehaviour
 		switch (wave)
 		{
 			case 1:
-                spawnLaser();
+                spawnSaw();
                 
                 currBatStats.hp = 1;
                 currBatStats.moveSpeed = 30;
-                numberOfBats = 3;
+                numberOfBats = 2;
                 spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
+
+                spawnBossBat(3, 20);
+                break;
+            case 2:
+                spawnLaser();
+
+                currBatStats.hp = 1;
+                currBatStats.moveSpeed = 35;
+                numberOfBats = 4;
+                spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
+
+                spawnBossBat(5, 20);
+                break;
+            case 3:
+                spawnSaw();
 
                 currGobStats.hp = 2;
                 currGobStats.moveSpeed = 40;
                 numberOfGoblins = 1;
                 spawnGobs(currBatStats.hp, currBatStats.moveSpeed, numberOfGoblins);
 
+                spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
                 spawnBossBat(5, 20);
                 break;
-            case 2:
+            case 4:
                 spawnSaw();
-                currBatStats.hp = 1;
-                currBatStats.moveSpeed = 30;
-                numberOfBats = 6;
-                spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
 
+                currBatStats.hp = 1;
+                currBatStats.moveSpeed = 35;
+                numberOfBats = 2;
+
+                currGobStats.hp = 1;
+                currGobStats.moveSpeed = 40;
+                numberOfGoblins = 2;
+                spawnGobs(currBatStats.hp, currBatStats.moveSpeed, numberOfGoblins);
+
+                spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
                 spawnBossGob(5, 20);
                 break;
-            case 3:
-                spawnLaser();
+            case 5:
+                spawnSpikes(4);
+
                 currBatStats.hp = 1;
                 currBatStats.moveSpeed = 30;
-                numberOfBats = 6;
+                numberOfBats = 4;
+
+                currGobStats.hp = 1;
+                currGobStats.moveSpeed = 40;
+                numberOfGoblins = 2;
+                spawnGobs(currBatStats.hp, currBatStats.moveSpeed, numberOfGoblins);
 
                 spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
-                spawnBossBat(5, 20);
+                spawnBossBat(6, 30);
+                break;
+            case 6:
+                spawnSaw();
+
+                currBatStats.hp = 2;
+                currBatStats.moveSpeed = 40;
+                numberOfBats = 2;
+
+                currGobStats.hp = 2;
+                currGobStats.moveSpeed = 40;
+                numberOfGoblins = 2;
+                spawnGobs(currBatStats.hp, currBatStats.moveSpeed, numberOfGoblins);
+
+                spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
+                spawnBossGob(5, 30);
+                break;
+            case 7:
+                spawnSpikes(6);
+                spawnSaw();
+
+                currBatStats.hp = 2;
+                currBatStats.moveSpeed = 40;
+                numberOfBats = 2;
+
+                currGobStats.hp = 2;
+                currGobStats.moveSpeed = 40;
+                numberOfGoblins = 2;
+                spawnGobs(currBatStats.hp, currBatStats.moveSpeed, numberOfGoblins);
+
+                spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
+                spawnBossGob(5, 30);
+                break;
+            case 8:
+                spawnLaser();
+                spawnSaw();
+                spawnSpikes(5);
+
+                currBatStats.hp = 2;
+                currBatStats.moveSpeed = 40;
+                numberOfBats = 2;
+
+                currGobStats.hp = 2;
+                currGobStats.moveSpeed = 40;
+                numberOfGoblins = 2;
+                spawnGobs(currBatStats.hp, currBatStats.moveSpeed, numberOfGoblins);
+
+                spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
+                spawnBossGob(5, 30);
+                break;
+            case 9:
+                break;
+            case 10:
                 break;
             default:
 				break;
