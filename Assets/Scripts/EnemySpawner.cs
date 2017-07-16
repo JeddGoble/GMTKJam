@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
 
     private Stats currGobStats = new Stats();
 
-    private int currentWave = 1;
+    private int currentWave = 8;
 
     private List<GameObject> currHazards = new List<GameObject>();
 
@@ -118,6 +118,7 @@ public class EnemySpawner : MonoBehaviour
                 break;
             case 4:
                 spawnSaw();
+                spawnSpikes(2);
 
                 currBatStats.hp = 1;
                 currBatStats.moveSpeed = 35;
@@ -195,8 +196,37 @@ public class EnemySpawner : MonoBehaviour
                 spawnBossGob(5, 30);
                 break;
             case 9:
+                spawnLaser();
+                spawnSpikes(8);
+
+                currBatStats.hp = 2;
+                currBatStats.moveSpeed = 40;
+                numberOfBats = 3;
+
+                currGobStats.hp = 2;
+                currGobStats.moveSpeed = 40;
+                numberOfGoblins = 2;
+                spawnGobs(currBatStats.hp, currBatStats.moveSpeed, numberOfGoblins);
+
+                spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
+                spawnBossBat(6, 30);
                 break;
             case 10:
+                spawnLaser();
+                spawnSaw();
+                spawnSpikes(10);
+
+                currBatStats.hp = 2;
+                currBatStats.moveSpeed = 40;
+                numberOfBats = 4;
+
+                currGobStats.hp = 2;
+                currGobStats.moveSpeed = 40;
+                numberOfGoblins = 2;
+                spawnGobs(currBatStats.hp, currBatStats.moveSpeed, numberOfGoblins);
+
+                spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
+                spawnBossGob(6, 30);
                 break;
             default:
 				break;
