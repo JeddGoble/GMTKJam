@@ -56,6 +56,7 @@
      <Compile Include="Assets\scri.cs" />
      <Compile Include="Assets\Scripts\BaseEnemy.cs" />
      <Compile Include="Assets\Scripts\BatController.cs" />
+     <Compile Include="Assets\Scripts\BossBatController.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\GoblinArcherController.cs" />
