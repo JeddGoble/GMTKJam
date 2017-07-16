@@ -14,8 +14,11 @@ public class MorningStar : MonoBehaviour {
 
     public HingeJoint2D link;
 
+<<<<<<< HEAD
     public int mass = 0;
 
+=======
+>>>>>>> Flail grows and shrings
 	// Use this for initialization
 	void Start () {
         GetComponent<Rigidbody2D>().mass = mass;
@@ -35,7 +38,10 @@ public class MorningStar : MonoBehaviour {
             transform.localScale = new Vector3(flailScale, flailScale, 1);
             float radius = GetComponent<CircleCollider2D>().radius;
             link.anchor.Set(link.anchor.x + radius, link.anchor.y + (radius * 2));
+<<<<<<< HEAD
             GetComponent<Rigidbody2D>().mass += 5;
+=======
+>>>>>>> Flail grows and shrings
         }
 
         if(reset)
@@ -65,6 +71,9 @@ public class MorningStar : MonoBehaviour {
     public void resetFlail()
     {
         reset = true;
+<<<<<<< HEAD
         GetComponent<Rigidbody2D>().mass = mass;
+=======
+>>>>>>> Flail grows and shrings
     }
 }

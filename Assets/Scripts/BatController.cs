@@ -26,9 +26,6 @@ public class BatController : BaseEnemy
 	void Update()
 	{
 
-
-
-
 	}
 
 	void FixedUpdate()
@@ -40,6 +37,4 @@ public class BatController : BaseEnemy
 			rigidBody.velocity = heading * MoveSpeed * Time.deltaTime;
 		}
 	}
-
-
 }
