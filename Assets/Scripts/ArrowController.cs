@@ -50,7 +50,7 @@ public class ArrowController : MonoBehaviour
 		}
 		else
 		{
-			Destroy(this.gameObject);
+			Destroy(this.gameObject, 5);
 		}
 	}
 }

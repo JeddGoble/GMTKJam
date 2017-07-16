@@ -12,6 +12,10 @@ public class EnemySpawner : MonoBehaviour
 
 	public GameObject batPrefab;
 
+    public GameObject gobPrefab;
+
+    public GameObject bossGob;
+
     public GameObject bossBat;
 
     public GameObject Player;
@@ -22,11 +26,15 @@ public class EnemySpawner : MonoBehaviour
 
     private int numberOfBats = 0;
 
+    private int numberOfGoblins = 0;
+
     private Stats currBatStats = new Stats();
+
+    private Stats currGobStats = new Stats();
 
     private int currentWave = 1;
 
-    private GameObject currHazard = null;
+    private List<GameObject> currHazards = new List<GameObject>();
 
 	// Use this for initialization
 	void Start()
@@ -43,11 +51,18 @@ public class EnemySpawner : MonoBehaviour
         } else if(currBoss != null && bossActive)
         {
             int size = FindObjectsOfType(typeof(BatController)).Length;
-           while(numberOfBats > size)
-           {
+            while(numberOfBats > size)
+            {
                 spawnBat(currBatStats.hp, currBatStats.moveSpeed);
                 size++;
-           }
+            }
+
+            size = FindObjectsOfType(typeof(GoblinArcherController)).Length;
+            while (numberOfGoblins > size)
+            {
+                spawnGobs(currGobStats.hp, currGobStats.moveSpeed);
+                size++;
+            }
         }
 
         if (!bossActive && !enemiesAlive())
@@ -59,20 +74,32 @@ public class EnemySpawner : MonoBehaviour
 
 	public void SpawnNextWave(int wave)
 	{
-        if(currHazard != null)
+        if(currHazards.Count > 0)
         {
-            Destroy(currHazard);
+            foreach (GameObject h in currHazards)
+            {
+                Destroy(h);
+            }
         }
 		switch (wave)
 		{
 			case 1:
                 spawnLaser();
+                
                 currBatStats.hp = 1;
                 currBatStats.moveSpeed = 30;
                 numberOfBats = 3;
                 for (int i = 0; i < 3; i++)
 				{
                     spawnBat(currBatStats.hp, currBatStats.moveSpeed);
+                }
+
+                currGobStats.hp = 2;
+                currGobStats.moveSpeed = 40;
+                numberOfGoblins = 1;
+                for (int i = 0; i < 1; i++)
+                {
+                    spawnGobs(currBatStats.hp, currBatStats.moveSpeed);
                 }
                 spawnBossBat(5, 20);
                 break;
@@ -85,7 +112,7 @@ public class EnemySpawner : MonoBehaviour
                 {
                     spawnBat(currBatStats.hp, currBatStats.moveSpeed);
                 }
-                spawnBossBat(5, 20);
+                spawnBossGob(5, 20);
                 break;
             case 3:
                 spawnLaser();
@@ -103,6 +130,22 @@ public class EnemySpawner : MonoBehaviour
 		}
 
 	}
+
+    private void spawnGobs(int hp, int moveSpeed)
+    {
+        var spawnPositions = SpawnPoints.GetComponentsInChildren<Transform>();
+        var numberOfSpawns = spawnPositions.Length;
+        var usedSpawns = new Transform[numberOfSpawns];
+
+        var batSpawnNumber = (int)Random.Range(0, numberOfSpawns);
+        Transform spawnPoint = spawnPositions[batSpawnNumber];
+        Vector3 pos = new Vector3(spawnPoint.position.x + Random.Range(-1, 1), spawnPoint.position.y + Random.Range(-1, 1));
+        GameObject bat = Instantiate(gobPrefab, pos, spawnPoint.rotation);
+        GoblinArcherController controller = (GoblinArcherController)bat.GetComponent("GoblinArcherController");
+        controller.hp = hp;
+        controller.MoveSpeed = moveSpeed;
+        controller.PlayerTarget = Player.transform;
+    }
 
     private void spawnBat(int hp, int moveSpeed)
     {
@@ -138,20 +181,39 @@ public class EnemySpawner : MonoBehaviour
         bossActive = true;
     }
 
+    private void spawnBossGob(int hp, int moveSpeed)
+    {
+        var spawnPositions = SpawnPoints.GetComponentsInChildren<Transform>();
+        var numberOfSpawns = spawnPositions.Length;
+        var usedSpawns = new Transform[numberOfSpawns];
+
+        var batSpawnNumber = (int)Random.Range(0, numberOfSpawns);
+        Transform spawnPoint = spawnPositions[batSpawnNumber];
+        Vector3 pos = new Vector3(spawnPoint.position.x + Random.Range(-1, 1), spawnPoint.position.y + Random.Range(-1, 1));
+        GameObject bat = Instantiate(bossGob, pos, spawnPoint.rotation);
+        GoblinBossController controller = (GoblinBossController)bat.GetComponent("GoblinBossController");
+        controller.hp = hp;
+        controller.MoveSpeed = moveSpeed;
+        controller.PlayerTarget = Player.transform;
+        currBoss = controller;
+        bossActive = true;
+    }
+
     private void spawnSaw()
     {
-        currHazard = Instantiate(Saw);
+        currHazards.Add(Instantiate(Saw));
     }
 
     private void spawnLaser()
     {
-        currHazard = Instantiate(Laser);
+        currHazards.Add(Instantiate(Laser));
     }
 
     private bool enemiesAlive()
     {
         int bats = FindObjectsOfType(typeof(BatController)).Length;
-        return bats != 0;
+        int gobs = FindObjectsOfType(typeof(GoblinBossController)).Length;
+        return bats + gobs != 0;
     }
 
     private class Stats
