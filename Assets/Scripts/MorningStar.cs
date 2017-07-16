@@ -14,9 +14,11 @@ public class MorningStar : MonoBehaviour {
 
     public HingeJoint2D link;
 
+    public int mass = 0;
+
 	// Use this for initialization
 	void Start () {
-
+        GetComponent<Rigidbody2D>().mass = mass;
     }
 	
 	// Update is called once per frame
@@ -33,6 +35,7 @@ public class MorningStar : MonoBehaviour {
             transform.localScale = new Vector3(flailScale, flailScale, 1);
             float radius = GetComponent<CircleCollider2D>().radius;
             link.anchor.Set(link.anchor.x + radius, link.anchor.y + (radius * 2));
+            GetComponent<Rigidbody2D>().mass += 5;
         }
 
         if(reset)
@@ -62,5 +65,6 @@ public class MorningStar : MonoBehaviour {
     public void resetFlail()
     {
         reset = true;
+        GetComponent<Rigidbody2D>().mass = mass;
     }
 }
