@@ -165,7 +165,6 @@ public class GoblinArcherController : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D coll)
 	{
-		
 		if (coll.gameObject.tag == "Wall")
 		{
 			print("Goblin hit wall");
