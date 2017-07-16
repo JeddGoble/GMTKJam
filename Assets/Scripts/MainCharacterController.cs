@@ -6,15 +6,18 @@ public class MainCharacterController : MonoBehaviour
 {
 
 	public float speed = 14f;
+	public float FlailRangeCoefficient = 2f;
 	public float IdleAnimationSpeedThreshhold = 10f;
-	private Vector2 input;
-	private Vector2 rStick;
+	private Vector2 moveInput;
+	private Vector2 rightStick;
 	private SpriteRenderer sr;
 	private Rigidbody2D rb;
 	private Animator animator;
 
 	private float width;
 	private float height;
+
+	public GameObject FlailFirstLink;
 
 	public float TakeDamageKickback;
 	public float InvicibleTime;
@@ -52,26 +55,26 @@ public class MainCharacterController : MonoBehaviour
 	void Update()
 	{
 
-		input.x = Input.GetAxis("Horizontal");
-		input.y = Input.GetAxis("Vertical");
+		moveInput.x = Input.GetAxis("Horizontal");
+		moveInput.y = Input.GetAxis("Vertical");
 
-		bool isMoving = (rb.velocity.x > IdleAnimationSpeedThreshhold && rb.velocity.y > IdleAnimationSpeedThreshhold && Mathf.Abs(input.x) > 0 && Mathf.Abs(input.y) > 0);
+		bool isMoving = (rb.velocity.x > IdleAnimationSpeedThreshhold && rb.velocity.y > IdleAnimationSpeedThreshhold && Mathf.Abs(moveInput.x) > 0 && Mathf.Abs(moveInput.y) > 0);
 
-		if ((input.x != 0f || input.y != 0f) && !isAnimatingKickback)
+		if ((moveInput.x != 0f || moveInput.y != 0f) && !isAnimatingKickback)
 		{
 			animator.SetBool("IsWalking", true);
 		}
-		 else if (isAnimatingKickback || !isMoving)
+		else if (isAnimatingKickback || !isMoving)
 		{
 			animator.SetBool("IsWalking", false);
 		}
 
 
-		if (input.x < 0f)
+		if (moveInput.x < 0f)
 		{
 			sr.flipX = true;
 		}
-		else if (input.x > 0f)
+		else if (moveInput.x > 0f)
 		{
 			sr.flipX = false;
 		}
@@ -86,6 +89,10 @@ public class MainCharacterController : MonoBehaviour
 				invincibleTimer = InvicibleTime;
 			}
 		}
+
+		rightStick.x = Input.GetAxis("RightH");
+		rightStick.y = Input.GetAxis("RightV");
+
 	}
 
 	void FixedUpdate()
@@ -102,15 +109,16 @@ public class MainCharacterController : MonoBehaviour
 		}
 		else
 		{
-			rb.velocity = new Vector2(input.x * speed, input.y * speed);
+			rb.velocity = new Vector2(moveInput.x * speed, moveInput.y * speed);
 		}
 
+		HingeJoint2D hinge = FlailFirstLink.GetComponent<HingeJoint2D>();
+		float force = width * FlailRangeCoefficient;
+		hinge.anchor = rightStick * force;
 	}
 
 	public void TakeDamage(Vector2 fromDirection)
 	{
-
-
 		if (!isInvincible)
 		{
 			animator.SetBool("IsInvincible", true);
