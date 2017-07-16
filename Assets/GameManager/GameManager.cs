@@ -98,6 +98,6 @@ public class GameManager : MonoBehaviour
 	{
 		print("Restarting level");
 		SceneManager.LoadScene("MainScene");
-		enemySpawner.SpawnNextWave(CurrentLevel);
+		//enemySpawner.SpawnNextWave(CurrentLevel);
 	}
 }

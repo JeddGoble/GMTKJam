@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		
+		SpawnNextWave(1);
 	}
 
 	// Update is called once per frame
@@ -35,8 +35,8 @@ public class EnemySpawner : MonoBehaviour
 
 				for (int i = 0; i < 3; i++)
 				{
-					var spawnPoint = spawnPositions[batSpawnNumber];
-					Instantiate(batPrefab);
+					Transform spawnPoint = spawnPositions[batSpawnNumber];
+					Instantiate(batPrefab, spawnPoint);
 				}
 
 				break;
