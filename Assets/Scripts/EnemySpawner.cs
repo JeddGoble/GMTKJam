@@ -288,7 +288,7 @@ public class EnemySpawner : MonoBehaviour
         currHazards.Add(Instantiate(Laser));
     }
 
-    private void spawnFloorSpikes(int n)
+    private void spawnSpikes(int n)
     {
         List<int> used = new List<int>();
         for(int i = 0;i < n;i++)
