@@ -9,6 +9,8 @@ public class EnemySpawner : MonoBehaviour
 
 	public GameObject batPrefab;
 
+    public GameObject Player;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -31,12 +33,14 @@ public class EnemySpawner : MonoBehaviour
 		switch (wave)
 		{
 			case 1:
-				var batSpawnNumber = (int)Random.Range(0, numberOfSpawns);
-
 				for (int i = 0; i < 3; i++)
 				{
-					Transform spawnPoint = spawnPositions[batSpawnNumber];
-					Instantiate(batPrefab, spawnPoint);
+                    var batSpawnNumber = (int)Random.Range(0, numberOfSpawns);
+                    Transform spawnPoint = spawnPositions[batSpawnNumber];
+                    Vector3 pos = new Vector3(spawnPoint.position.x + Random.Range(-1, 1), spawnPoint.position.y + Random.Range(-1, 1));
+                    GameObject bat = Instantiate(batPrefab, pos, spawnPoint.rotation);
+                    BatController controller = (BatController) bat.GetComponent("BatController");
+                    controller.PlayerTarget = Player.transform;
 				}
 
 				break;

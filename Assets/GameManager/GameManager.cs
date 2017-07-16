@@ -112,4 +112,9 @@ public class GameManager : MonoBehaviour
 		SceneManager.LoadScene("MainScene");
 		//enemySpawner.SpawnNextWave(CurrentLevel);
 	}
+
+    public void spawn()
+    {
+        enemySpawner.SpawnNextWave(1);
+    }
 }
