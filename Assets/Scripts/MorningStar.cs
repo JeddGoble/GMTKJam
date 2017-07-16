@@ -6,6 +6,14 @@ public class MorningStar : MonoBehaviour {
 
     public int flailStrength = 1;
 
+    private int kills = 0;
+
+    private float flailScale = 3;
+
+    private bool reset = false;
+
+    public HingeJoint2D link;
+
 	// Use this for initialization
 	void Start () {
 
@@ -13,8 +21,27 @@ public class MorningStar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
+
+    private void FixedUpdate()
+    {
+        if (kills > 1)
+        {
+            kills = 0;
+            flailScale += 1;
+            transform.localScale = new Vector3(flailScale, flailScale, 1);
+            float radius = GetComponent<CircleCollider2D>().radius;
+            link.anchor.Set(link.anchor.x + radius, link.anchor.y + (radius * 2));
+        }
+
+        if(reset)
+        {
+            flailScale = 3;
+            reset = false;
+            transform.localScale = new Vector3(flailScale, flailScale, 1);
+        }
+    }
 
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -23,8 +50,17 @@ public class MorningStar : MonoBehaviour {
             BaseEnemy enemy = (BaseEnemy) coll.gameObject.GetComponent("BaseEnemy");
             if (enemy != null)
             {
-                enemy.takeDamage(flailStrength);
+                bool dead = enemy.takeDamage(flailStrength);
+                if(dead)
+                {
+                    kills += 1;
+                }
             }
         }
+    }
+
+    public void resetFlail()
+    {
+        reset = true;
     }
 }

@@ -22,17 +22,22 @@ public class BaseEnemy : MonoBehaviour {
         {
             var myPos = new Vector2(transform.position.x, transform.position.y);
             GameManager.instance.PlayerTakeDamage(1, myPos);
+            GameManager.instance.PlayerCharacter.resetFlail();
         }
     }
 
-    public void takeDamage(int amount)
+    public bool takeDamage(int amount)
     {
         hp -= amount;
 
         if(hp < 0)
         {
             kill();
+            //returns true for dead
+            return true;
         }
+
+        return false;
     }
 
     public void kill()

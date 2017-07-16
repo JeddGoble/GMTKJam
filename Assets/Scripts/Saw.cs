@@ -27,6 +27,8 @@ public class Saw : MonoBehaviour
 		{
 			var myPos = new Vector2(transform.position.x, transform.position.y);
 			GameManager.instance.PlayerTakeDamage(1, myPos);
-		}
+            GameManager.instance.PlayerCharacter.resetFlail();
+
+        }
 	}
 }

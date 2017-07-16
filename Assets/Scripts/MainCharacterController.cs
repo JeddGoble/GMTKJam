@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MainCharacterController : MonoBehaviour
 {
+    public Rigidbody2D flail;
 
 	public float speed = 14f;
 	public float FlailRangeCoefficient = 2f;
@@ -123,6 +124,12 @@ public class MainCharacterController : MonoBehaviour
 			isAnimatingKickback = true;
 		}
 	}
+
+    public void resetFlail()
+    {
+        MorningStar star = (MorningStar)flail.GetComponent("MorningStar");
+        star.resetFlail();
+    }
 
     public void Kill()
     {
