@@ -112,9 +112,9 @@ public class MainCharacterController : MonoBehaviour
 			rb.velocity = new Vector2(moveInput.x * speed, moveInput.y * speed);
 		}
 
-		HingeJoint2D hinge = FlailFirstLink.GetComponent<HingeJoint2D>();
+		/*HingeJoint2D hinge = FlailFirstLink.GetComponent<HingeJoint2D>();
 		float force = width * FlailRangeCoefficient;
-		hinge.anchor = rightStick * force;
+		hinge.anchor = rightStick * force;*/
 	}
 
 	public void TakeDamage(Vector2 fromDirection)
