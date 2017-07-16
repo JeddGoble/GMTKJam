@@ -60,6 +60,24 @@ public class GameManager : MonoBehaviour
 
 	}
 
+	public void PlayerGainHeart()
+	{
+		if (LivesLeft >= StartingLives)
+		{
+			print("Already at max health");
+			return;
+		}
+
+		print("Adding a life");
+
+		LivesLeft += 1;
+
+		if (HeartsManager != null)
+		{
+			HeartsManager.SetHearts(LivesLeft);
+		}
+	}
+
 	public void PlayerTakeDamage(int damageAmount, Vector2 attackerLocation)
 	{
 
@@ -86,19 +104,8 @@ public class GameManager : MonoBehaviour
 		var kickbackDirection = -(attackerLocation - playerPosition).normalized;
 		PlayerCharacter.TakeDamage(kickbackDirection);
 
-
-		// Handle UI changes
-		GameObject tempObject = GameObject.Find("LivesLeft");
-
-		if (tempObject != null)
-		{
-			Text livesText = tempObject.GetComponent<Text>();
-			livesText.text = LivesLeft.ToString();
-		}
-
 		if (HeartsManager != null)
 		{
-			print("Setting hearts");
 			HeartsManager.SetHearts(LivesLeft);
 		}
 	}

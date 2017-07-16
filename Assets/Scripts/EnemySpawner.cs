@@ -24,6 +24,8 @@ public class EnemySpawner : MonoBehaviour
 
     public GameObject Spikes;
 
+	public GameObject heartPrefab;
+
     private BaseEnemy currBoss = null;
 
     private bool bossActive = false;
@@ -106,6 +108,8 @@ public class EnemySpawner : MonoBehaviour
                 spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
 
                 spawnBossBat(5, 20);
+
+                spawnHeartPowerUp();
                 break;
             case 3:
                 spawnSaw();
@@ -117,6 +121,8 @@ public class EnemySpawner : MonoBehaviour
 
                 spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
                 spawnBossBat(5, 20);
+
+                spawnHeartPowerUp();
                 break;
             case 4:
                 spawnSaw();
@@ -132,6 +138,8 @@ public class EnemySpawner : MonoBehaviour
 
                 spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
                 spawnBossGob(5, 20);
+
+                spawnHeartPowerUp();
                 break;
             case 5:
                 spawnSpikes(4);
@@ -147,6 +155,8 @@ public class EnemySpawner : MonoBehaviour
 
                 spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
                 spawnBossBat(6, 30);
+
+                spawnHeartPowerUp();
                 break;
             case 6:
                 spawnSaw();
@@ -162,6 +172,8 @@ public class EnemySpawner : MonoBehaviour
 
                 spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
                 spawnBossGob(5, 30);
+
+                spawnHeartPowerUp();
                 break;
             case 7:
                 spawnSpikes(6);
@@ -178,6 +190,8 @@ public class EnemySpawner : MonoBehaviour
 
                 spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
                 spawnBossGob(5, 30);
+
+                spawnHeartPowerUp();
                 break;
             case 8:
                 spawnLaser();
@@ -195,10 +209,16 @@ public class EnemySpawner : MonoBehaviour
 
                 spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
                 spawnBossGob(5, 30);
+
+                spawnHeartPowerUp();
                 break;
             case 9:
+
+                spawnHeartPowerUp();
                 break;
             case 10:
+
+                spawnHeartPowerUp();
                 break;
             default:
 				break;
@@ -245,6 +265,19 @@ public class EnemySpawner : MonoBehaviour
             controller.sfx = (SFXController)SFX.GetComponent("SFXController");
         }
     }
+
+	private void spawnHeartPowerUp()
+	{
+		var spawnPositions = SpawnPoints.GetComponentsInChildren<Transform>();
+		var numberOfSpawns = spawnPositions.Length;
+		var usedSpawns = new Transform[numberOfSpawns];
+
+		var heartSpawnNumber = (int)Random.Range(0, numberOfSpawns);
+		Transform spawnPoint = spawnPositions[heartSpawnNumber];
+
+		GameObject heart = Instantiate(heartPrefab, spawnPoint.position, spawnPoint.rotation);
+
+	}
 
     private void spawnBossBat(int hp, int moveSpeed)
     {

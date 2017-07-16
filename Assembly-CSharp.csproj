@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\GameManager\GameManager.cs" />
+     <Compile Include="Assets\HeartPowerUp.cs" />
      <Compile Include="Assets\Scripts\ArrowController.cs" />
      <Compile Include="Assets\Scripts\BaseEnemy.cs" />
      <Compile Include="Assets\Scripts\BatController.cs" />
@@ -63,6 +64,7 @@
      <Compile Include="Assets\Scripts\GroundSpikesController.cs" />
      <Compile Include="Assets\Scripts\HeartController.cs" />
      <Compile Include="Assets\Scripts\HeartsManager.cs" />
+     <Compile Include="Assets\Scripts\LaserController.cs" />
      <Compile Include="Assets\Scripts\MainCharacterController.cs" />
      <Compile Include="Assets\Scripts\MorningStar.cs" />
      <Compile Include="Assets\Scripts\PSpike.cs" />
