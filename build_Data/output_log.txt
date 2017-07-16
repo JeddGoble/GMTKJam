@@ -19,13 +19,13 @@ Platform assembly: C:\Users\Armando\Documents\GameJam\GMTKJam\build_Data\Managed
 Loading C:\Users\Armando\Documents\GameJam\GMTKJam\build_Data\Managed\UnityEngine.Timeline.dll into Unity Child Domain
 Platform assembly: C:\Users\Armando\Documents\GameJam\GMTKJam\build_Data\Managed\System.dll (this message is harmless)
 Platform assembly: C:\Users\Armando\Documents\GameJam\GMTKJam\build_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.020 seconds
+- Completed reload, in  0.013 seconds
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.988980 ms
+UnloadTime: 1.523480 ms
 Setting up 4 worker threads for Enlighten.
-  Thread -> id: 4e48 -> priority: 1 
-  Thread -> id: 6844 -> priority: 1 
-  Thread -> id: 609c -> priority: 1 
-  Thread -> id: 7a2c -> priority: 1 
+  Thread -> id: 70bc -> priority: 1 
+  Thread -> id: 7194 -> priority: 1 
+  Thread -> id: 69ec -> priority: 1 
+  Thread -> id: 31f8 -> priority: 1 
