@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseEnemy : MonoBehaviour {
+public abstract class BaseEnemy : MonoBehaviour {
 
     public int hp = 1;
 
@@ -24,7 +24,11 @@ public class BaseEnemy : MonoBehaviour {
             GameManager.instance.PlayerTakeDamage(1, myPos);
             GameManager.instance.PlayerCharacter.resetFlail();
         }
+
+		HandleCollisions(coll);
     }
+
+	public abstract void HandleCollisions(Collision2D coll);
 
     public bool takeDamage(int amount)
     {

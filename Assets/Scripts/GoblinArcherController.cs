@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoblinArcherController : MonoBehaviour
+public class GoblinArcherController : BaseEnemy
 {
 
 	enum Intent { Idle, GetCloser, RunAway, MoveAwayFromWall, ShootArrow };
@@ -13,7 +13,9 @@ public class GoblinArcherController : MonoBehaviour
 	public float MinRangeToPlayer = 3f;
 	public float MaxRangeToPlayer = 8f;
 
-	public float ArrowDistance = 10f;
+	public Rigidbody2D arrowRB;
+
+	public float ArrowForce = 100f;
 	public float ArrowMaxFrequency = 3f;
 	private float timeSinceLastArrow;
 
@@ -157,13 +159,27 @@ public class GoblinArcherController : MonoBehaviour
 
 	public void DidCompleteShootingArrow()
 	{
+
+		instanciateArrow();
+
 		timeSinceLastArrow = 0f;
 		animator.SetBool("IsShooting", false);
 		currentIntent = determineNextIntent();
 		updateCurrentAnimation();
 	}
 
-	void OnCollisionEnter2D(Collision2D coll)
+	private void instanciateArrow()
+	{
+		if (arrowRB != null)
+		{
+			directionToPlayer = (PlayerTarget.position - transform.position).normalized;
+			var angleToPlayer = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
+			Rigidbody2D arrow = Instantiate(arrowRB, transform.position, Quaternion.AngleAxis(angleToPlayer, transform.forward));
+			arrow.AddForce(directionToPlayer * ArrowForce);
+		}
+	}
+
+	override public void HandleCollisions(Collision2D coll)
 	{
 		if (coll.gameObject.tag == "Wall")
 		{

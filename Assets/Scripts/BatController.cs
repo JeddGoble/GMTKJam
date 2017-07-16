@@ -28,6 +28,11 @@ public class BatController : BaseEnemy
 
 	}
 
+	override public void HandleCollisions(Collision2D coll)
+	{
+
+	}
+
 	void FixedUpdate()
 	{
 		if (PlayerTarget != null)
