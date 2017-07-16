@@ -5,7 +5,7 @@ using UnityEngine;
 public class GoblinArcherController : MonoBehaviour
 {
 
-	enum Intent { Idle, GetCloser, RunAway, ShootArrow };
+	enum Intent { Idle, GetCloser, RunAway, MoveAwayFromWall, ShootArrow };
 
 	public Transform PlayerTarget;
 	public float MoveSpeed = 50f;
@@ -23,6 +23,7 @@ public class GoblinArcherController : MonoBehaviour
 
 	private Vector2 directionToPlayer = new Vector2();
 	private Vector2 currentHeading = new Vector2();
+	private Vector2 directionAwayFromWall = new Vector2();
 
 	public float ActionTime = 2f;
 	public float InitialActionTime = 0f;
@@ -78,6 +79,10 @@ public class GoblinArcherController : MonoBehaviour
 					currentHeading = -directionToPlayer;
 					rigidBody.velocity = currentHeading * MoveSpeed * Time.deltaTime;
 					break;
+				case Intent.MoveAwayFromWall:
+					currentHeading = directionAwayFromWall;
+					rigidBody.velocity = currentHeading* MoveSpeed * Time.deltaTime;
+					break;
 				case Intent.ShootArrow:
 					currentHeading = directionToPlayer;
 					rigidBody.velocity = Vector2.zero;
@@ -97,6 +102,10 @@ public class GoblinArcherController : MonoBehaviour
 					animator.SetBool("IsShooting", false);
 					break;
 				case Intent.RunAway:
+					animator.SetBool("IsWalking", true);
+					animator.SetBool("IsShooting", false);
+					break;
+				case Intent.MoveAwayFromWall:
 					animator.SetBool("IsWalking", true);
 					animator.SetBool("IsShooting", false);
 					break;
@@ -152,5 +161,21 @@ public class GoblinArcherController : MonoBehaviour
 		animator.SetBool("IsShooting", false);
 		currentIntent = determineNextIntent();
 		updateCurrentAnimation();
+	}
+
+	void OnCollisionEnter2D(Collision2D coll)
+	{
+		
+		if (coll.gameObject.tag == "Wall")
+		{
+			print("Goblin hit wall");
+
+			directionAwayFromWall = (coll.gameObject.transform.position - transform.position).normalized;
+			currentHeading = directionAwayFromWall;
+
+			currentIntent = Intent.MoveAwayFromWall;
+			currentActionTimer = ActionTime;
+			updateCurrentAnimation();
+		}
 	}
 }
