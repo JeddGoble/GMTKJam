@@ -53,14 +53,14 @@ public class EnemySpawner : MonoBehaviour
             int size = FindObjectsOfType(typeof(BatController)).Length;
             while(numberOfBats > size)
             {
-                spawnBat(currBatStats.hp, currBatStats.moveSpeed);
+                spawnBat(currBatStats.hp, currBatStats.moveSpeed, 1);
                 size++;
             }
 
             size = FindObjectsOfType(typeof(GoblinArcherController)).Length;
             while (numberOfGoblins > size)
             {
-                spawnGobs(currGobStats.hp, currGobStats.moveSpeed);
+                spawnGobs(currGobStats.hp, currGobStats.moveSpeed, 1);
                 size++;
             }
         }
@@ -89,18 +89,13 @@ public class EnemySpawner : MonoBehaviour
                 currBatStats.hp = 1;
                 currBatStats.moveSpeed = 30;
                 numberOfBats = 3;
-                for (int i = 0; i < 3; i++)
-				{
-                    spawnBat(currBatStats.hp, currBatStats.moveSpeed);
-                }
+                spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
 
                 currGobStats.hp = 2;
                 currGobStats.moveSpeed = 40;
                 numberOfGoblins = 1;
-                for (int i = 0; i < 1; i++)
-                {
-                    spawnGobs(currBatStats.hp, currBatStats.moveSpeed);
-                }
+                spawnGobs(currBatStats.hp, currBatStats.moveSpeed, numberOfGoblins);
+
                 spawnBossBat(5, 20);
                 break;
             case 2:
@@ -108,10 +103,8 @@ public class EnemySpawner : MonoBehaviour
                 currBatStats.hp = 1;
                 currBatStats.moveSpeed = 30;
                 numberOfBats = 6;
-                for (int i = 0; i < 3; i++)
-                {
-                    spawnBat(currBatStats.hp, currBatStats.moveSpeed);
-                }
+                spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
+
                 spawnBossGob(5, 20);
                 break;
             case 3:
@@ -119,10 +112,8 @@ public class EnemySpawner : MonoBehaviour
                 currBatStats.hp = 1;
                 currBatStats.moveSpeed = 30;
                 numberOfBats = 6;
-                for (int i = 0; i < 3; i++)
-                {
-                    spawnBat(currBatStats.hp, currBatStats.moveSpeed);
-                }
+
+                spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
                 spawnBossBat(5, 20);
                 break;
             default:
@@ -131,36 +122,42 @@ public class EnemySpawner : MonoBehaviour
 
 	}
 
-    private void spawnGobs(int hp, int moveSpeed)
+    private void spawnGobs(int hp, int moveSpeed, int n)
     {
-        var spawnPositions = SpawnPoints.GetComponentsInChildren<Transform>();
-        var numberOfSpawns = spawnPositions.Length;
-        var usedSpawns = new Transform[numberOfSpawns];
+        for (int i = 0; i < n; i++)
+        {
+            var spawnPositions = SpawnPoints.GetComponentsInChildren<Transform>();
+            var numberOfSpawns = spawnPositions.Length;
+            var usedSpawns = new Transform[numberOfSpawns];
 
-        var batSpawnNumber = (int)Random.Range(0, numberOfSpawns);
-        Transform spawnPoint = spawnPositions[batSpawnNumber];
-        Vector3 pos = new Vector3(spawnPoint.position.x + Random.Range(-1, 1), spawnPoint.position.y + Random.Range(-1, 1));
-        GameObject bat = Instantiate(gobPrefab, pos, spawnPoint.rotation);
-        GoblinArcherController controller = (GoblinArcherController)bat.GetComponent("GoblinArcherController");
-        controller.hp = hp;
-        controller.MoveSpeed = moveSpeed;
-        controller.PlayerTarget = Player.transform;
+            var batSpawnNumber = (int)Random.Range(0, numberOfSpawns);
+            Transform spawnPoint = spawnPositions[batSpawnNumber];
+            Vector3 pos = new Vector3(spawnPoint.position.x + Random.Range(-1, 1), spawnPoint.position.y + Random.Range(-1, 1));
+            GameObject bat = Instantiate(gobPrefab, pos, spawnPoint.rotation);
+            GoblinArcherController controller = (GoblinArcherController)bat.GetComponent("GoblinArcherController");
+            controller.hp = hp;
+            controller.MoveSpeed = moveSpeed;
+            controller.PlayerTarget = Player.transform;
+        }
     }
 
-    private void spawnBat(int hp, int moveSpeed)
+    private void spawnBat(int hp, int moveSpeed, int n)
     {
-        var spawnPositions = SpawnPoints.GetComponentsInChildren<Transform>();
-        var numberOfSpawns = spawnPositions.Length;
-        var usedSpawns = new Transform[numberOfSpawns];
+        for (int i = 0; i < n; i++)
+        {
+            var spawnPositions = SpawnPoints.GetComponentsInChildren<Transform>();
+            var numberOfSpawns = spawnPositions.Length;
+            var usedSpawns = new Transform[numberOfSpawns];
 
-        var batSpawnNumber = (int)Random.Range(0, numberOfSpawns);
-        Transform spawnPoint = spawnPositions[batSpawnNumber];
-        Vector3 pos = new Vector3(spawnPoint.position.x + Random.Range(-1, 1), spawnPoint.position.y + Random.Range(-1, 1));
-        GameObject bat = Instantiate(batPrefab, pos, spawnPoint.rotation);
-        BatController controller = (BatController)bat.GetComponent("BatController");
-        controller.hp = hp;
-        controller.MoveSpeed = moveSpeed;
-        controller.PlayerTarget = Player.transform;
+            var batSpawnNumber = (int)Random.Range(0, numberOfSpawns);
+            Transform spawnPoint = spawnPositions[batSpawnNumber];
+            Vector3 pos = new Vector3(spawnPoint.position.x + Random.Range(-1, 1), spawnPoint.position.y + Random.Range(-1, 1));
+            GameObject bat = Instantiate(batPrefab, pos, spawnPoint.rotation);
+            BatController controller = (BatController)bat.GetComponent("BatController");
+            controller.hp = hp;
+            controller.MoveSpeed = moveSpeed;
+            controller.PlayerTarget = Player.transform;
+        }
     }
 
     private void spawnBossBat(int hp, int moveSpeed)
