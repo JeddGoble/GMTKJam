@@ -51,15 +51,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ArrowController.cs" />
      <Compile Include="Assets\GameManager\GameManager.cs" />
-     <Compile Include="Assets\scri.cs" />
+     <Compile Include="Assets\Scripts\ArrowController.cs" />
      <Compile Include="Assets\Scripts\BaseEnemy.cs" />
      <Compile Include="Assets\Scripts\BatController.cs" />
      <Compile Include="Assets\Scripts\BossBatController.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\GoblinArcherController.cs" />
+     <Compile Include="Assets\Scripts\GoblinBossController.cs" />
      <Compile Include="Assets\Scripts\GroundSpikesController.cs" />
      <Compile Include="Assets\Scripts\HeartController.cs" />
      <Compile Include="Assets\Scripts\HeartsManager.cs" />

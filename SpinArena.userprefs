@@ -1,17 +1,19 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GoblinArcherController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GoblinBossController.cs">
     <Files>
-      <File FileName="Assets/GameManager/GameManager.cs" Line="81" Column="1" />
-      <File FileName="Assets/Scripts/BatController.cs" Line="1" Column="1" />
+      <File FileName="Assets/GameManager/GameManager.cs" Line="54" Column="26" />
       <File FileName="Assets/Scripts/MainCharacterController.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/GroundSpikesController.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Saw.cs" Line="24" Column="2" />
-      <File FileName="Assets/Scripts/MorningStar.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MorningStar.cs" Line="59" Column="18" />
       <File FileName="Assets/Scripts/HeartController.cs" Line="23" Column="3" />
       <File FileName="Assets/Scripts/Shooter.cs" Line="30" Column="10" />
-      <File FileName="Assets/ArrowController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GoblinArcherController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/BossBatController.cs" Line="23" Column="7" />
+      <File FileName="Assets/Scripts/GoblinArcherController.cs" Line="17" Column="2" />
+      <File FileName="Assets/Scripts/BossBatController.cs" Line="25" Column="3" />
+      <File FileName="Assets/Scripts/BatController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BaseEnemy.cs" Line="50" Column="3" />
+      <File FileName="Assets/Scripts/GoblinBossController.cs" Line="174" Column="3" />
+      <File FileName="Assets/Scripts/ArrowController.cs" Line="48" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
