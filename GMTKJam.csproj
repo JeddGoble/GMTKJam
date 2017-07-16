@@ -89,6 +89,7 @@
     <Compile Include="Assets\Scripts\Saw.cs" />
     <Compile Include="Assets\Scripts\SawHolder.cs" />
     <Compile Include="Assets\Scripts\Shooter.cs" />
+    <Compile Include="Assets\Scripts\Spire.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
