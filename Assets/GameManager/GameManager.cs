@@ -9,11 +9,13 @@ public class GameManager : MonoBehaviour
 
 	public static GameManager instance;
 
-	public EnemySpawner enemySpawner;
+	//public EnemySpawner enemySpawner;
 
 	public MainCharacterController PlayerCharacter;
 
     public CameraFollow camera;
+
+	public HeartsManager HeartsManager;
 
 	public int StartingLives;
 	public int LivesLeft;
@@ -30,7 +32,6 @@ public class GameManager : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
-		DontDestroyOnLoad(gameObject);
 	}
 
 	// Use this for initialization
@@ -38,7 +39,10 @@ public class GameManager : MonoBehaviour
 	{
 		LivesLeft = StartingLives;
 
-		RestartLevelNow();
+		if (HeartsManager != null)
+		{
+			HeartsManager.SetHearts(LivesLeft);
+		}
 	}
 
 	// Update is called once per frame
@@ -49,6 +53,8 @@ public class GameManager : MonoBehaviour
 
 	public void PlayerTakeDamage(int damageAmount, Vector2 attackerLocation)
 	{
+
+		print("Dealing player damage");
 
 		// Handle state update
 		if (PlayerCharacter.IsInvincible())
@@ -79,6 +85,12 @@ public class GameManager : MonoBehaviour
 		{
 			Text livesText = tempObject.GetComponent<Text>();
 			livesText.text = LivesLeft.ToString();
+		}
+
+		if (HeartsManager != null)
+		{
+			print("Setting hearts");
+			HeartsManager.SetHearts(LivesLeft);
 		}
 	}
 

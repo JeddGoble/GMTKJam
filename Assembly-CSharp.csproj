@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\GoblinArcherController.cs" />
      <Compile Include="Assets\Scripts\GroundSpikesController.cs" />
      <Compile Include="Assets\Scripts\HeartController.cs" />
+     <Compile Include="Assets\Scripts\HeartsManager.cs" />
      <Compile Include="Assets\Scripts\MainCharacterController.cs" />
      <Compile Include="Assets\Scripts\MorningStar.cs" />
      <Compile Include="Assets\Scripts\PSpike.cs" />
