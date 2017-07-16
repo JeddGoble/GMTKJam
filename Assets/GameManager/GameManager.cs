@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
 	public MainCharacterController PlayerCharacter;
 
+    public CameraFollow camera;
+
 	public int StartingLives;
 	public int LivesLeft;
 
@@ -49,6 +51,13 @@ public class GameManager : MonoBehaviour
 		}
 		
 		LivesLeft -= damageAmount;
+
+        if(LivesLeft <= 0)
+        {
+            PlayerCharacter.Kill();
+            camera.Shake(1f, 2f);
+            RestartLevel(2);
+        }
 
 		// Handle player damage & animation
 

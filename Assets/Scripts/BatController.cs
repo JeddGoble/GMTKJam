@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BatController : MonoBehaviour
+public class BatController : BaseEnemy
 {
 
 	public Transform PlayerTarget;
@@ -41,12 +41,5 @@ public class BatController : MonoBehaviour
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D coll)
-	{
-		if (coll.gameObject.tag == "Player")
-		{
-			var myPos = new Vector2(transform.position.x, transform.position.y);
-			GameManager.instance.PlayerTakeDamage(1, myPos);
-		}
-	}
+
 }
