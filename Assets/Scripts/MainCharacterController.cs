@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class MainCharacterController : MonoBehaviour
@@ -46,11 +47,11 @@ public class MainCharacterController : MonoBehaviour
 		kickbackTimer = KickbackTime;
 	}
 
-	// Use this for initialization
-	void Start()
-	{
+    // Use this for initialization
+    void Start()
+    {
 
-	}
+    }
 
 	// Update is called once per frame
 	void Update()
