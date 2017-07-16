@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
 	public static GameManager instance;
 
-	//public EnemySpawner enemySpawner;
+	public EnemySpawner enemySpawner;
 
 	public MainCharacterController PlayerCharacter;
 
