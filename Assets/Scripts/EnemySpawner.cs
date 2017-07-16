@@ -52,8 +52,8 @@ public class EnemySpawner : MonoBehaviour
 
         if (!bossActive && !enemiesAlive())
         {
-            //currentWave++;
-            //SpawnNextWave(currentWave);
+            currentWave++;
+            SpawnNextWave(currentWave);
         }
 	}
 
@@ -97,9 +97,6 @@ public class EnemySpawner : MonoBehaviour
                     spawnBat(currBatStats.hp, currBatStats.moveSpeed);
                 }
                 spawnBossBat(5, 20);
-                break;
-            case 4:
-                bossActive = true;
                 break;
             default:
 				break;
