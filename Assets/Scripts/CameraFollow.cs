@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-
 	public Transform camTarget;
 	public float trackingSpeed = 3f;
 
@@ -12,6 +11,15 @@ public class CameraFollow : MonoBehaviour
     private bool shake = false;
     private float intensity = 0;
     private float length = 0;
+
+    void Start()
+    {
+        
+    }
+
+    private void Awake()
+    {
+    }
 
     private void Update()
     {

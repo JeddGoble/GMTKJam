@@ -6,8 +6,11 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static AudioSource start;
 
-	public static GameManager instance;
+    public AudioSource startPrefab;
+
+    public static GameManager instance;
 
 	public EnemySpawner enemySpawner;
 
@@ -32,6 +35,12 @@ public class GameManager : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+
+        if (start == null)
+        {
+            start = Instantiate<AudioSource>(startPrefab);
+            DontDestroyOnLoad(start);
+        }
 	}
 
 	// Use this for initialization
