@@ -249,7 +249,24 @@ public class EnemySpawner : MonoBehaviour
                 spawnHeartPowerUp();
                 break;
             default:
-				break;
+                spawnLaser();
+                spawnSaw();
+                spawnSpikes(30);
+
+                currBatStats.hp = 2;
+                currBatStats.moveSpeed = 60;
+                numberOfBats = 4;
+
+                currGobStats.hp = 2;
+                currGobStats.moveSpeed = 40;
+                numberOfGoblins = 2;
+                spawnGobs(currBatStats.hp, currBatStats.moveSpeed, numberOfGoblins);
+
+                spawnBat(currBatStats.hp, currBatStats.moveSpeed, numberOfBats);
+                spawnBossGob(200, 30);
+
+                spawnHeartPowerUp();
+                break;
 		}
 
 	}
