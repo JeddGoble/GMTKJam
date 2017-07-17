@@ -38,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
 
     private Stats currGobStats = new Stats();
 
-    private int currentWave = 8;
+    private int currentWave = 1;
 
     private List<GameObject> currHazards = new List<GameObject>();
 
