@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
 
 	public HeartsManager HeartsManager;
 
-	public int StartingLives;
-	public int LivesLeft;
+	public int StartingLives = 5;
+	public int LivesLeft = 5;
 
 	public int CurrentLevel = 1;
 

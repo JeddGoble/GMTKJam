@@ -139,6 +139,6 @@ public class MainCharacterController : MonoBehaviour
 
     public void Kill()
     {
-
+        sfx.playPlayerKill();
     }
 }
