@@ -6,6 +6,8 @@ public abstract class BaseEnemy : MonoBehaviour {
 
     public int hp = 1;
 
+    public SFXController sfx = null;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -40,12 +42,21 @@ public abstract class BaseEnemy : MonoBehaviour {
             //returns true for dead
             return true;
         }
+        sfx.playEnemyHit();
 
         return false;
     }
 
     public void kill()
     {
+        if(this is GoblinBossController || this is BossBatController)
+        {
+            sfx.playBossKill();
+        }
+        else
+        {
+            sfx.playEnemyKill();
+        }
         Destroy(this.gameObject);
     }
 }
