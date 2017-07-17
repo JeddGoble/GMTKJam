@@ -71,6 +71,7 @@
      <Compile Include="Assets\Scripts\Saw.cs" />
      <Compile Include="Assets\Scripts\SawHolder.cs" />
      <Compile Include="Assets\Scripts\SceneRouter.cs" />
+     <Compile Include="Assets\Scripts\SFXController.cs" />
      <Compile Include="Assets\Scripts\Shooter.cs" />
      <Compile Include="Assets\Scripts\Spire.cs" />
  <Reference Include="UnityEngine.UI">
