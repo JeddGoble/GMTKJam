@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public GameObject SFX;
+
     public GameObject Laser;
 
     public GameObject Saw;
@@ -220,6 +222,7 @@ public class EnemySpawner : MonoBehaviour
             controller.hp = hp;
             controller.MoveSpeed = moveSpeed;
             controller.PlayerTarget = Player.transform;
+            controller.sfx = (SFXController)SFX.GetComponent("SFXController");
         }
     }
 
@@ -239,6 +242,7 @@ public class EnemySpawner : MonoBehaviour
             controller.hp = hp;
             controller.MoveSpeed = moveSpeed;
             controller.PlayerTarget = Player.transform;
+            controller.sfx = (SFXController)SFX.GetComponent("SFXController");
         }
     }
 
@@ -257,6 +261,7 @@ public class EnemySpawner : MonoBehaviour
         controller.MoveSpeed = moveSpeed;
         controller.PlayerTarget = Player.transform;
         currBoss = controller;
+        controller.sfx = (SFXController)SFX.GetComponent("SFXController");
         bossActive = true;
     }
 
@@ -275,6 +280,7 @@ public class EnemySpawner : MonoBehaviour
         controller.MoveSpeed = moveSpeed;
         controller.PlayerTarget = Player.transform;
         currBoss = controller;
+        controller.sfx = (SFXController) SFX.GetComponent("SFXController");
         bossActive = true;
     }
 

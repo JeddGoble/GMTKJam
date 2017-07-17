@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class MainCharacterController : MonoBehaviour
 {
+
+    public GameObject SFX;
+    private SFXController sfx = null;
     public Rigidbody2D flail;
 
 	public float speed = 14f;
@@ -50,7 +53,7 @@ public class MainCharacterController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        sfx = (SFXController) SFX.GetComponent("SFXController");
     }
 
 	// Update is called once per frame
@@ -117,7 +120,9 @@ public class MainCharacterController : MonoBehaviour
 
 	public void TakeDamage(Vector2 fromDirection)
 	{
-		if (!isInvincible)
+        sfx.playPlayerHit();
+
+        if (!isInvincible)
 		{
 			animator.SetBool("IsInvincible", true);
 			isInvincible = true;
