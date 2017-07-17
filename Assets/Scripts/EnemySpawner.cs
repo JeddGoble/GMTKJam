@@ -42,6 +42,10 @@ public class EnemySpawner : MonoBehaviour
 
     private List<GameObject> currHazards = new List<GameObject>();
 
+    private bool switching = false;
+
+    private float switchTimer = 0;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -51,30 +55,48 @@ public class EnemySpawner : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-        if(currBoss == null && bossActive)
+        if (!switching)
         {
-            bossActive = false;
-        } else if(currBoss != null && bossActive)
-        {
-            int size = FindObjectsOfType(typeof(BatController)).Length;
-            while(numberOfBats > size)
+            if (currBoss == null && bossActive)
             {
-                spawnBat(currBatStats.hp, currBatStats.moveSpeed, 1);
-                size++;
+                bossActive = false;
+            }
+            else if (currBoss != null && bossActive)
+            {
+                int size = FindObjectsOfType(typeof(BatController)).Length;
+                while (numberOfBats > size)
+                {
+                    spawnBat(currBatStats.hp, currBatStats.moveSpeed, 1);
+                    size++;
+                }
+
+                size = FindObjectsOfType(typeof(GoblinArcherController)).Length;
+                while (numberOfGoblins > size)
+                {
+                    spawnGobs(currGobStats.hp, currGobStats.moveSpeed, 1);
+                    size++;
+                }
             }
 
-            size = FindObjectsOfType(typeof(GoblinArcherController)).Length;
-            while (numberOfGoblins > size)
+            if (!bossActive && !enemiesAlive())
             {
-                spawnGobs(currGobStats.hp, currGobStats.moveSpeed, 1);
-                size++;
+                if (currentWave != 11)
+                {
+                    currentWave++;
+                }
+                switching = true;
+                
             }
         }
-
-        if (!bossActive && !enemiesAlive())
+        else
         {
-            currentWave++;
-            SpawnNextWave(currentWave);
+            switchTimer += Time.deltaTime;
+            if(switchTimer > 2)
+            {
+                switchTimer = 0;
+                switching = false;
+                SpawnNextWave(currentWave);
+            }
         }
 	}
 
@@ -248,7 +270,7 @@ public class EnemySpawner : MonoBehaviour
 
                 spawnHeartPowerUp();
                 break;
-            default:
+            case 11:
                 spawnLaser();
                 spawnSaw();
                 spawnSpikes(30);
