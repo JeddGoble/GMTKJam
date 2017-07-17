@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\GameManager\GameManager.cs" />
+    <Compile Include="Assets\HeartPowerUp.cs" />
     <Compile Include="Assets\Scripts\ArrowController.cs" />
     <Compile Include="Assets\Scripts\BaseEnemy.cs" />
     <Compile Include="Assets\Scripts\BatController.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="Assets\Scripts\PSpike.cs" />
     <Compile Include="Assets\Scripts\Saw.cs" />
     <Compile Include="Assets\Scripts\SawHolder.cs" />
+    <Compile Include="Assets\Scripts\SceneRouter.cs" />
     <Compile Include="Assets\Scripts\SFXController.cs" />
     <Compile Include="Assets\Scripts\Shooter.cs" />
     <Compile Include="Assets\Scripts\Spire.cs" />
