@@ -19,48 +19,26 @@ Platform assembly: C:\Users\Armando\Documents\GameJam\GMTKJam\build_Data\Managed
 Loading C:\Users\Armando\Documents\GameJam\GMTKJam\build_Data\Managed\UnityEngine.Timeline.dll into Unity Child Domain
 Platform assembly: C:\Users\Armando\Documents\GameJam\GMTKJam\build_Data\Managed\System.dll (this message is harmless)
 Platform assembly: C:\Users\Armando\Documents\GameJam\GMTKJam\build_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.014 seconds
+- Completed reload, in  0.095 seconds
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 2.070226 ms
-Filling hearts
+UnloadTime: 2.104206 ms
+Loading main game scene
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Dealing player damage
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.268468 ms
 
-Setting hearts
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 625.
+Total: 0.287169 ms (FindLiveObjects: 0.111904 ms CreateObjectMapping: 0.013540 ms MarkObjects: 0.149460 ms  DeleteObjects: 0.011241 ms)
 
 Filling hearts
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Dealing player damage
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Setting hearts
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Filling hearts
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Dealing player damage
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Dealing player damage
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Setting hearts
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
@@ -76,20 +54,36 @@ Dealing player damage
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Setting hearts
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Filling hearts
+Dealing player damage
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Dealing player damage
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Dealing player damage
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Dealing player damage
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Dealing player damage
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Dealing player damage
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Filling hearts
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Setting up 4 worker threads for Enlighten.
-  Thread -> id: af30 -> priority: 1 
-  Thread -> id: 713c -> priority: 1 
-  Thread -> id: b2ec -> priority: 1 
-  Thread -> id: 9254 -> priority: 1 
+  Thread -> id: ac90 -> priority: 1 
+  Thread -> id: 9eb4 -> priority: 1 
+  Thread -> id: 42f8 -> priority: 1 
+  Thread -> id: 8c90 -> priority: 1 
