@@ -54,6 +54,7 @@ public class MainCharacterController : MonoBehaviour
     void Start()
     {
         sfx = (SFXController) SFX.GetComponent("SFXController");
+        sfx.playSpawn();
     }
 
 	// Update is called once per frame
