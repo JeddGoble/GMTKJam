@@ -321,8 +321,9 @@ public class EnemySpawner : MonoBehaviour
 		Transform spawnPoint = spawnPositions[heartSpawnNumber];
 
 		GameObject heart = Instantiate(heartPrefab, spawnPoint.position, spawnPoint.rotation);
-
-	}
+        HeartPowerUp p = (HeartPowerUp) heart.GetComponent("HeartPowerUp");
+        p.sfx = (SFXController)SFX.GetComponent("SFXController");
+    }
 
     private void spawnBossBat(int hp, int moveSpeed)
     {

@@ -18,6 +18,9 @@ public class SFXController : MonoBehaviour {
     public AudioSource playerKill;
     public static AudioSource playerKillStatic;
 
+    public AudioSource heartPickup;
+    public static AudioSource heartPickupStatic;
+
     private void Awake()
     {
         if (bossKillStatic == null)
@@ -48,6 +51,12 @@ public class SFXController : MonoBehaviour {
         {
             playerKillStatic = Instantiate<AudioSource>(playerKill);
             DontDestroyOnLoad(playerKillStatic);
+        }
+
+        if (heartPickupStatic == null)
+        {
+            heartPickupStatic = Instantiate<AudioSource>(heartPickup);
+            DontDestroyOnLoad(heartPickupStatic);
         }
     }
 
@@ -84,5 +93,10 @@ public class SFXController : MonoBehaviour {
     public void playPlayerKill()
     {
         playerKillStatic.Play();
+    }
+
+    public void playHeartPickup()
+    {
+        heartPickupStatic.Play();
     }
 }
